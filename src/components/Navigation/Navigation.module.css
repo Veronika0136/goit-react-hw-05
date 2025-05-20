@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 44%);
+}
+
+.nav {
+  display: flex;
+  margin-left: 50px;
+}
+
+.link {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.active {
+  color: red;
+}
