@@ -18,9 +18,6 @@ const HomePage = () => {
     getData();
   }, []);
 
-  console.log(trendingMovies);
-  console.log(trendingMovies.map(item => item.id));
-
   return (
     <div>
       <h1 className={s.title}>Trending today</h1>

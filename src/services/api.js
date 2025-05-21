@@ -17,8 +17,6 @@ export const fetchTrendingMovies = async () => {
     `https://api.themoviedb.org/3/trending/movie/day?language=en-US`,
     options
   );
-
-  console.log(response.data);
   return response.data;
 };
 
@@ -27,37 +25,29 @@ export const fetchSearchMovies = async query => {
     `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=${query}`,
     options
   );
-
-  console.log(response.data);
   return response.data;
 };
 
-export const fetchMovieDetails = async () => {
+export const fetchMovieDetails = async movieId => {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/movie_id?language=en-US`,
+    `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
     options
   );
-
-  console.log(response.data);
   return response.data;
 };
 
-export const fetchMovieCredits = async () => {
+export const fetchMovieCredits = async movieId => {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/movie_id/credits?language=en-US`,
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
     options
   );
-
-  console.log(response.data);
   return response.data;
 };
 
-export const fetchMovieReviews = async () => {
+export const fetchMovieReviews = async movieId => {
   const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/movie_id/reviews?language=en-US&page=1`,
+    `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=en-US&page=1`,
     options
   );
-
-  console.log(response.data);
   return response.data;
 };
