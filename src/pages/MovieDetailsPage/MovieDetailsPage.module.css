@@ -1,0 +1,61 @@
+.btn {
+  padding: 3px;
+  margin-left: 30px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  border: 1px solid rgb(0 0 0 / 44%);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: rgb(170, 170, 170);
+  color: white;
+}
+
+.img {
+  max-width: 50%;
+  margin-bottom: 10px;
+}
+
+.content {
+  display: flex;
+  padding: 0px 20px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid grey;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.list {
+  padding: 15px 0px 15px 25px;
+}
+
+.genres {
+  display: flex;
+  gap: 15px;
+}
+
+.txt {
+  margin-left: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* .info {
+  border-bottom: 1px solid grey;
+} */
+.nav {
+  display: grid;
+  justify-items: start;
+  padding: 0px 0px 20px 40px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid grey;
+}
+
+.li_link {
+  list-style: disc;
+}

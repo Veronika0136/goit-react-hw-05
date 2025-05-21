@@ -1,0 +1,17 @@
+.cast {
+  padding: 0px 35px;
+}
+
+.img {
+  max-width: 20%;
+  margin-bottom: 10px;
+}
+
+li {
+  list-style: disc;
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 10px;
+}
