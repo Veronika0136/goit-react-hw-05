@@ -8,10 +8,9 @@ const MovieDetailsPage = () => {
   const [details, setDetails] = useState([]);
   const location = useLocation();
   const goBackRef = useRef(location.state ?? '/movies');
-  console.log(location);
-  console.log(goBackRef);
 
   useEffect(() => {
+    if (!movieId) return;
     const getData = async () => {
       try {
         const data = await fetchMovieDetails(movieId);
@@ -23,7 +22,8 @@ const MovieDetailsPage = () => {
     getData();
   }, [movieId]);
 
-  console.log(details);
+  const defaultImg =
+    'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg';
 
   return (
     <div>
@@ -34,8 +34,12 @@ const MovieDetailsPage = () => {
       <div className={s.content}>
         <img
           className={s.img}
-          src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}
-          alt="img"
+          src={
+            details.poster_path
+              ? `https://image.tmdb.org/t/p/w500/${details.poster_path}`
+              : defaultImg
+          }
+          alt="poster"
         />
         <ul className={s.list}>
           <li className={s.li_link}>

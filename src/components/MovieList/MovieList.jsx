@@ -4,7 +4,6 @@ import s from './MovieList.module.css';
 
 const MovieList = ({ arr }) => {
   const location = useLocation();
-  console.log(location);
 
   return (
     <div>

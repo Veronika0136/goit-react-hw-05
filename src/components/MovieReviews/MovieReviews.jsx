@@ -20,18 +20,20 @@ const MovieReviews = () => {
     getData();
   }, [movieId]);
 
-  console.log(reviews);
-
   return (
     <div className={s.reviews}>
-      <ul>
-        {reviews.map(item => (
-          <li className={s.list} key={item.id}>
-            <h4 className={s.author}>{item.author}</h4>
-            <p>"{item.content}"</p>
-          </li>
-        ))}
-      </ul>
+      {reviews.length === 0 ? (
+        <p> We don't have any reviews for this movie.</p>
+      ) : (
+        <ul>
+          {reviews.map(item => (
+            <li className={s.list} key={item.id}>
+              <h4 className={s.author}>{item.author}</h4>
+              <p>"{item.content}"</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
