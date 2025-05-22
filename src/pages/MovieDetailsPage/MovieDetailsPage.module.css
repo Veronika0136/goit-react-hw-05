@@ -1,10 +1,10 @@
 .btn {
   padding: 3px;
-  margin-left: 30px;
-  margin-bottom: 3px;
+  margin-left: 20px;
   cursor: pointer;
   border: 1px solid rgb(0 0 0 / 44%);
   border-radius: 4px;
+  color: #000;
   transition: background-color 0.2s ease;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .img {
-  max-width: 50%;
+  max-width: 20%;
   margin-bottom: 10px;
 }
 
@@ -22,10 +22,11 @@
   display: flex;
   padding: 0px 20px;
   margin-bottom: 15px;
+  margin-top: 5px;
   border-bottom: 1px solid grey;
 }
 
-li {
+.li_link {
   list-style: none;
   margin-bottom: 10px;
 }
@@ -45,17 +46,10 @@ li {
   margin-top: 20px;
 }
 
-/* .info {
-  border-bottom: 1px solid grey;
-} */
 .nav {
   display: grid;
   justify-items: start;
   padding: 0px 0px 20px 40px;
   margin-bottom: 20px;
   border-bottom: 1px solid grey;
-}
-
-.li_link {
-  list-style: disc;
 }

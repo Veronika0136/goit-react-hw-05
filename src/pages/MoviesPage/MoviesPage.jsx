@@ -4,10 +4,13 @@ import MovieList from '../../components/MovieList/MovieList';
 import { fetchSearchMovies } from '../../services/api';
 import toast from 'react-hot-toast';
 import s from './MoviesPage.module.css';
+import { useSearchParams } from 'react-router-dom';
 
 const MoviesPage = () => {
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
   const [arr, setArr] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
     if (!query) return;
@@ -24,12 +27,17 @@ const MoviesPage = () => {
   }, [query]);
 
   const handleChangeQuery = newQuery => {
-    setQuery(newQuery);
+    if (!newQuery) {
+      searchParams.delete('query');
+      return setSearchParams(searchParams);
+    }
+    searchParams.set('query', newQuery);
+    setSearchParams(searchParams);
     setArr([]);
   };
 
-  const handleSubmit = (values, options) => {
-    const newQuery = values.query.trim();
+  const handleSubmit = (value, options) => {
+    const newQuery = value.query.trim();
     if (newQuery) {
       handleChangeQuery(newQuery);
     } else {

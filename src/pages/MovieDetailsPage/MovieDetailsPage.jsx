@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
+import { NavLink, Link, Outlet, useParams, useLocation } from 'react-router-dom';
 import { fetchMovieDetails } from '../../services/api';
 import s from './MovieDetailsPage.module.css';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [details, setDetails] = useState([]);
+  const location = useLocation();
+  const goBackRef = useRef(location.state ?? '/movies');
+  console.log(location);
+  console.log(goBackRef);
 
   useEffect(() => {
     const getData = async () => {
@@ -23,29 +27,30 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      <button className={s.btn} type="submit">
+      <Link className={s.btn} to={goBackRef.current}>
         Go back
-      </button>
+      </Link>
+
       <div className={s.content}>
         <img
           className={s.img}
-          src={`https://image.tmdb.org/t/p/w500/${details.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}
           alt="img"
         />
         <ul className={s.list}>
-          <li>
+          <li className={s.li_link}>
             <h3>{details.title}</h3>
           </li>
-          <li>
+          <li className={s.li_link}>
             <p>Users score: {Math.round(details.popularity)}%</p>
           </li>
-          <li>
+          <li className={s.li_link}>
             <h4>Overview</h4>
           </li>
-          <li>
+          <li className={s.li_link}>
             <p>{details.overview}</p>
           </li>
-          <li>
+          <li className={s.li_link}>
             <h4>Genres</h4>
           </li>
           <li className={s.genres}>
@@ -58,10 +63,10 @@ const MovieDetailsPage = () => {
 
       <nav className={s.nav}>
         <ul>
-          <li className={s.li_link}>
+          <li>
             <NavLink to="cast">Cast</NavLink>
           </li>
-          <li className={s.li_link}>
+          <li>
             <NavLink to="reviews">Reviews</NavLink>
           </li>
         </ul>

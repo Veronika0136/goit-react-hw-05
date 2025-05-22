@@ -8,6 +8,7 @@ const MovieReviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
+    if (!movieId) return;
     const getData = async () => {
       try {
         const data = await fetchMovieReviews(movieId);
@@ -25,7 +26,7 @@ const MovieReviews = () => {
     <div className={s.reviews}>
       <ul>
         {reviews.map(item => (
-          <li key={item.id}>
+          <li className={s.list} key={item.id}>
             <h4 className={s.author}>{item.author}</h4>
             <p>"{item.content}"</p>
           </li>

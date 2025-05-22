@@ -8,6 +8,7 @@ const MovieCast = () => {
   const [cast, setCast] = useState([]);
 
   useEffect(() => {
+    if (!movieId) return;
     const getData = async () => {
       try {
         const data = await fetchMovieCredits(movieId);
@@ -25,14 +26,14 @@ const MovieCast = () => {
     <div className={s.cast}>
       <ul>
         {cast.map(item => (
-          <li key={item.id}>
+          <li className={s.li} key={item.id}>
             <img
               className={s.img}
               src={`https://image.tmdb.org/t/p/w500/${item.profile_path}`}
               alt="photo"
             />
-            <p className={s.name}>{item.name}</p>
-            <p>Character: {item.character}</p>
+            <p>{item.name}</p>
+            <p className={s.text}>Character: {item.character}</p>
           </li>
         ))}
       </ul>
