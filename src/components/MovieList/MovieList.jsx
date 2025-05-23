@@ -10,7 +10,7 @@ const MovieList = ({ arr }) => {
       <ul className={s.list}>
         {arr.map(item => (
           <li key={item.id}>
-            <Link state={location} to={item.id.toString()}>
+            <Link state={location} to={`/movies/${item.id}`}>
               {item.title}
             </Link>
           </li>
